@@ -3,10 +3,14 @@
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-require_once "vendor/autoload.php";
+require_once "./vendor/autoload.php";
 
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(["./src"], $isDevMode);
+
+//$config = Setup::createXMLMetadataConfiguration(["config/xml"], $isDevMode);
+
+//$config = Setup::createYAMLMetadataConfiguration(["config/yml"], $isDevMode);
 
 $connection = [
     "dbname" => "dbdoctrine",
