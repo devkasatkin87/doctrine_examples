@@ -2,8 +2,13 @@
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Doctrine\Common\ClassLoader;
 
 require_once "./vendor/autoload.php";
+require_once "./vendor/doctrine/common/lib/Doctrine/Common/ClassLoader.php";
+
+$classLoader = new ClassLoader('Repositories');
+$classLoader->register();
 
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(["./src"], $isDevMode);

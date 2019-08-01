@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @Entity
+ * @Entity(repositoryClass="\Repositories\BookRepository")
  * @Table(name="books") 
- * **/
+ **/
 class Book
 {
     /** @Id 
@@ -11,10 +11,12 @@ class Book
      * @GeneratedValue 
      **/
     protected $id;
+
     /** 
      * @Column(type="string", name="title_book", length=32, unique=true)
      **/
     protected $title;
+
     /** 
      * @Column(type="string", length=22)
      **/
@@ -80,6 +82,306 @@ class Book
      * **/
     protected $ftext;
 
+    
 
 
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of title
+     */ 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set the value of title
+     *
+     * @return  self
+     */ 
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of author
+     */ 
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set the value of author
+     *
+     * @return  self
+     */ 
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     *
+     * @return  self
+     */ 
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of pages
+     */ 
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * Set the value of pages
+     *
+     * @return  self
+     */ 
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tirage
+     */ 
+    public function getTirage()
+    {
+        return $this->tirage;
+    }
+
+    /**
+     * Set the value of tirage
+     *
+     * @return  self
+     */ 
+    public function setTirage($tirage)
+    {
+        $this->tirage = $tirage;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of publish
+     */ 
+    public function getPublish()
+    {
+        return $this->publish;
+    }
+
+    /**
+     * Set the value of publish
+     *
+     * @return  self
+     */ 
+    public function setPublish($publish)
+    {
+        $this->publish = $publish;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of created_at
+     */ 
+    public function getCreated_at()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set the value of created_at
+     *
+     * @return  self
+     */ 
+    public function setCreated_at($created_at)
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updated_at
+     */ 
+    public function getUpdated_at()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set the value of updated_at
+     *
+     * @return  self
+     */ 
+    public function setUpdated_at($updated_at)
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of text
+     */ 
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set the value of text
+     *
+     * @return  self
+     */ 
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of params
+     */ 
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    /**
+     * Set the value of params
+     *
+     * @return  self
+     */ 
+    public function setParams($params)
+    {
+        $this->params = $params;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of params_a
+     */ 
+    public function getParams_a()
+    {
+        return $this->params_a;
+    }
+
+    /**
+     * Set the value of params_a
+     *
+     * @return  self
+     */ 
+    public function setParams_a($params_a)
+    {
+        $this->params_a = $params_a;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of params_s
+     */ 
+    public function getParams_s()
+    {
+        return $this->params_s;
+    }
+
+    /**
+     * Set the value of params_s
+     *
+     * @return  self
+     */ 
+    public function setParams_s($params_s)
+    {
+        $this->params_s = $params_s;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of params_j
+     */ 
+    public function getParams_j()
+    {
+        return $this->params_j;
+    }
+
+    /**
+     * Set the value of params_j
+     *
+     * @return  self
+     */ 
+    public function setParams_j($params_j)
+    {
+        $this->params_j = $params_j;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ftext
+     */ 
+    public function getFtext()
+    {
+        return $this->ftext;
+    }
+
+    /**
+     * Set the value of ftext
+     *
+     * @return  self
+     */ 
+    public function setFtext($ftext)
+    {
+        $this->ftext = $ftext;
+
+        return $this;
+    }
 }
