@@ -1,4 +1,7 @@
 <?php
+
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity @Table(name="users")
  **/
@@ -21,6 +24,16 @@ class User
      * //@JoinColumn(name="info_id", referencedColumnName="id") 
     **/
     protected $info;
+
+    /** 
+     * @OneToMany(targetEntity="Book", mappedBy="user")
+     **/
+    protected $books;
+
+    public function __construct()
+    {
+        $this->books = new ArrayCollection();
+    }
 
     public function setName(string $name)
     {
@@ -73,6 +86,26 @@ class User
     public function setInfo($info)
     {
         $this->info = $info;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of books
+     */ 
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * Set the value of books
+     *
+     * @return  self
+     */ 
+    public function setBooks($books)
+    {
+        $this->books = $books;
 
         return $this;
     }
