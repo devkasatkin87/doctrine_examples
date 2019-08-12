@@ -16,6 +16,12 @@ class User
     /** @Column(type="string") **/
     protected $password;
 
+    /** 
+     * @OneToOne(targetEntity="Info", inversedBy="user") //обратная связь
+     * //@JoinColumn(name="info_id", referencedColumnName="id") 
+    **/
+    protected $info;
+
     public function setName(string $name)
     {
         $this->name = $name;
@@ -49,5 +55,25 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+
+    /**
+     * Get the value of info
+     */ 
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * Set the value of info
+     *
+     * @return  self
+     */ 
+    public function setInfo($info)
+    {
+        $this->info = $info;
+
+        return $this;
     }
 }
