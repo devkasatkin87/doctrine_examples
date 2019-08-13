@@ -27,12 +27,21 @@ class User
 
     /** 
      * @OneToMany(targetEntity="Book", mappedBy="user")
+     * @JoinColumn(name="user_id", referencedColumnName="id")
+     * )
      **/
     protected $books;
+
+    /** 
+     * @ManyToMany(targetEntity="Role", inversedBy="users")
+     * @JoinTable(name="users_roles")
+     **/
+    protected $roles;
 
     public function __construct()
     {
         $this->books = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
 
     public function setName(string $name)
@@ -106,6 +115,26 @@ class User
     public function setBooks($books)
     {
         $this->books = $books;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of role
+     */ 
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function addRole(Role $role)
+    {
+        $this->roles[] = $role;
 
         return $this;
     }
