@@ -3,6 +3,8 @@
 /**
  * @Entity(repositoryClass="\Repositories\BookRepository")
  * @Table(name="books") 
+ * @HasLifecycleCallbacks
+ * @EntityListeners({"\Events\BookListener"})
  **/
 class Book
 {
@@ -22,6 +24,11 @@ class Book
      * JoinColumn(name="user_id", referencedColumnName="id") 
      **/
     protected $user;
+
+    /** 
+     *  @Column(type="datetime", nullable=true) 
+    **/
+    protected $createdAt;
     
     /**
      * Get the value of id
@@ -81,5 +88,13 @@ class Book
         $this->user = $user;
 
         return $this;
+    }
+
+    /** 
+     *  @PrePersist
+    **/
+    public function setCreatedAt()
+    {
+        $this->createdAt = new DateTime;
     }
 }
